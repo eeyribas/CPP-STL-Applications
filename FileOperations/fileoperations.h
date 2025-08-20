@@ -5,11 +5,6 @@
 #include <vector>
 #include <cstdio>
 #include <cstring>
-#include <fstream>
-#include <sstream>
-#include <iomanip>
-#include <dirent.h>
-#include <sys/stat.h>
 
 class FileOperations
 {

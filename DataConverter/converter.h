@@ -2,7 +2,6 @@
 #define CONVERTER_H
 
 #include <string>
-#include <math.h>
 
 class Converter
 {
@@ -19,7 +18,8 @@ public:
     int ConvertDecimal(double value);
     int HexadecimalToDecimal(char values[]);
     int UnsignedChar16BitToInt(unsigned char first, unsigned char second);
-    int UnsignedChar32BitToInt(unsigned char first, unsigned char second, unsigned char third, unsigned char four);
+    int UnsignedChar32BitToInt(unsigned char first, unsigned char second,
+                               unsigned char third, unsigned char four);
 };
 
 #endif // CONVERTER_H

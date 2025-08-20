@@ -1,17 +1,17 @@
 #include <QCoreApplication>
-#include <QDebug>
-#include <stdint.h>
 #include <string>
 #include <stdexcept>
+#include <stdio.h>
+#include <stdint.h>
 #include <sys/statvfs.h>
 #include <errno.h>
 
-uint64_t GetDiskUsage(const char* path)
+uint64_t GetDiskUsage(const char *path)
 {
     struct statvfs info = {};
     if (statvfs(path, &info)) {
         int err_num = errno;
-        qDebug() << "Error in statvfs : " << strerror(err_num);
+        printf("Error in statvfs : %s", strerror(err_num));
 
         return 0;
     }
@@ -24,7 +24,7 @@ uint64_t GetDiskUsage(const char* path)
 int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
-    qDebug() << "Available Disk Memory : " << GetDiskUsage("/home");
+    printf("Available Disk Memory : %d", GetDiskUsage("/home"));
 
     return a.exec();
 }

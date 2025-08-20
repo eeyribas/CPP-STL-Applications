@@ -18,7 +18,8 @@ int main(int argc, char *argv[])
     QCoreApplication a(argc, argv);
 
     const int data_length = 10;
-    double input_data[data_length] = {10.2, 23.6, 45.4, 52.8, 47.5, 49.6, 55.1, 50.6, 43.2, 38.7};
+    double input_data[data_length] = {10.2, 23.6, 45.4, 52.8, 47.5,
+                                      49.6, 55.1, 50.6, 43.2, 38.7};
     double output_data[data_length];
     MOAFilter(input_data, data_length, output_data);
     std::cout << "Output Data = ";
