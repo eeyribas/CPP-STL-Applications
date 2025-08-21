@@ -1,41 +1,34 @@
 #include "process.h"
+#include <chrono>
+#include <unistd.h>
+#include <sys/ioctl.h>
+#include <sys/syscall.h>
 
 Process::Process()
 {
-    try {
-        Stop();
-    } catch (std::exception& e) {
-    }
+    Stop();
 }
 
 Process::~Process()
 {
-    try {
-        Stop();
-    } catch (std::exception& e) {
-    }
+    Stop();
 }
 
 void Process::Start(int core_index, std::string text)
 {
-    try {
-        Stop();
-        SetThreadState(true);
-        th = std::thread(&Process::ProcessFunction, this, core_index, text);
-    } catch (std::exception& e) {
-    }
+    Stop();
+    SetThreadState(true);
+    th = std::thread(&Process::ProcessFunction,
+                     this, core_index, text);
 }
 
 void Process::Stop()
 {
-    try {
-        bool thread_status = GetThreadState();
-        SetThreadState(false);
-        std::this_thread::sleep_for(std::chrono::milliseconds(10));
-        if (thread_status)
-            th.join();
-    } catch (std::exception& e) {
-    }
+    bool thread_status = GetThreadState();
+    SetThreadState(false);
+    std::this_thread::sleep_for(std::chrono::milliseconds(10));
+    if (thread_status)
+        th.join();
 }
 
 void Process::SetThreadState(bool value)
@@ -58,15 +51,12 @@ void Process::ProcessFunction(int core_index, std::string text)
         std::cout << "Erroring core selection." << std::endl;
 
     for (;;) {
-        try {
-            std::lock_guard<std::mutex> grd(mtx);
-            if (GetThreadState()) {
-                std::cout << "Text : " << text << std::endl;
-                std::this_thread::sleep_for(std::chrono::seconds(1));
-            } else {
-                break;
-            }
-        } catch (std::exception& e) {
+        std::lock_guard<std::mutex> grd(mtx);
+        if (GetThreadState()) {
+            std::cout << "Text : " << text << std::endl;
+            std::this_thread::sleep_for(std::chrono::seconds(1));
+        } else {
+            break;
         }
     }
 }

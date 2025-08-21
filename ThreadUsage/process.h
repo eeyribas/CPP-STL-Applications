@@ -4,10 +4,6 @@
 #include <iostream>
 #include <thread>
 #include <mutex>
-#include <chrono>
-#include <unistd.h>
-#include <sys/ioctl.h>
-#include <sys/syscall.h>
 
 class Process
 {

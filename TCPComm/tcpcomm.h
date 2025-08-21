@@ -4,13 +4,7 @@
 #include <iostream>
 #include <vector>
 #include <thread>
-#include <chrono>
-#include <cstring>
-#include <sys/socket.h>
-#include <netinet/in.h>
-#include <arpa/inet.h>
 #include <netdb.h>
-#include <unistd.h>
 
 class TCPComm
 {

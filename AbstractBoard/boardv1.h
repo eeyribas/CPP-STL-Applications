@@ -3,8 +3,6 @@
 
 #include <iostream>
 #include <vector>
-#include <cmath>
-#include <chrono>
 #include "boardmodel.h"
 #include "serialport.h"
 

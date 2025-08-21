@@ -6,7 +6,7 @@ CONFIG -= app_bundle
 DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
-        main.cpp \
+    main.cpp \
     process.cpp
 
 HEADERS += \

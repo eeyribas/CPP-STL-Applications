@@ -4,14 +4,6 @@
 #include <iostream>
 #include <thread>
 #include <mutex>
-#include <chrono>
-#include <unistd.h>
-#include <sys/ioctl.h>
-#include <sys/syscall.h>
-#include <sys/statvfs.h>
-#include <net/if.h>
-#include <arpa/inet.h>
-#include <errno.h>
 #include "tcpclient.h"
 
 class Communication

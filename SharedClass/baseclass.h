@@ -4,8 +4,6 @@
 class BaseClass
 {
 public:
-    BaseClass();
-
     void Text();
 };
 
