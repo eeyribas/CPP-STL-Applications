@@ -1,0 +1,3 @@
+Installation of the Nlohmann Library :
+1.) sudo apt-get update
+2.) sudo apt-get install nlohmann-json-dev
